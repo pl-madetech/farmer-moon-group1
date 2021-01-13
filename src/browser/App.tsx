@@ -2,22 +2,35 @@ import "./App.css";
 
 import React from "react";
 
-import useConfig from "../components/useConfig";
+class CostComponent extends React.Component<{corn: number},  {}> {
+  constructor(props: any) {
+    super(props);
+  }
+  render() {
+    return <p>{this.props.corn * 25}p</p>;
+  }
+}
 
-/**
- * Our Web Application
- */
-export default function App() {
-  const config = useConfig();
-  return (
-    <div className="App">
+export default class App extends React.Component<{},  {corn: number}> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      corn: 0
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event: any) {
+    this.setState({corn: event.target.value});
+  }
+  render() {
+    return <div className="App">
       <header className="App-header">
-        <h1 className="App-title">Welcome to {config.app.TITLE}</h1>
+        <h1 className="App-title">Cornundrum</h1>
       </header>
-      <p className="App-intro">
-        Hello. I have changed the app
-        Another change
-      </p>
+      <p>How many bags of corn do I have?</p>
+      <input type="number" onChange={this.handleChange} defaultValue="0"></input>
+      <p>@25p per bag, my total journey will cost:</p>
+      <CostComponent corn={this.state.corn} />
     </div>
-  );
+  };
 }
