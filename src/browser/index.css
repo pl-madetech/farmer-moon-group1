@@ -27,7 +27,8 @@ body, html, .App, #root, .outer {
 }
 
 .inner {
-  width: 450px;
+  width: 100%;
+  max-width: 450px;
   margin: auto;
   background: #ffffff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
@@ -50,4 +51,16 @@ body, html, .App, #root, .outer {
 
 .custom-control-label {
   font-weight: 400;
+}
+
+.navbar {
+  background-color: black;
+}
+
+.App-title {
+  font-size: 1.25rem;
+}
+
+.App-title a {
+  color: white;
 }
