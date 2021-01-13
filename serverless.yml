@@ -1,5 +1,5 @@
 ---
-service: serverless-react-boilerplate
+service: farmer-moon
 configValidationMode: off
 
 provider:
