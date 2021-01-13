@@ -1,5 +1,6 @@
 import React from "react";
 import _ from 'lodash';
+import { calculateCost } from "../business/costCalculator";
 
 export class CostComponent extends React.Component<{corn: number},  {}> {
     constructor(props: any) {
@@ -8,7 +9,7 @@ export class CostComponent extends React.Component<{corn: number},  {}> {
     render() {
         return <p>
             <span>My total journey will cost </span>
-            <span>{_.round(this.props.corn) * 25}p</span>
+            <span>{calculateCost(this.props)}p</span>
         </p>;
     }
   }
