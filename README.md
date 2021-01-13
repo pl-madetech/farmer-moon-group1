@@ -1,4 +1,4 @@
-# ♨️ serverless-react-boilerplate
+# ♨️ serverless-farmer-moon
 
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 [![dependencies](https://img.shields.io/david/arabold/serverless-react-boilerplate.svg)](https://github.com/arabold/serverless-react-boilerplate)

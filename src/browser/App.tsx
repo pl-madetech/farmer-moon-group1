@@ -17,10 +17,11 @@ export default function App() {
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
       <h1 className="App-title">{config.app.TITLE}</h1>
         <div className="container">
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <div className="collapse navbar-collapse">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link className="nav-link" to={"/sign-in"}>Sign in</Link>
+                <Link className="nav-link" to={"/dev"}>Home</Link>
+                <Link className="nav-link" to={"/dev/sign-in"}>Sign in</Link>
               </li>
             </ul>
           </div>
@@ -31,7 +32,7 @@ export default function App() {
         <div className="inner">
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path="/sign-in" component={Login} />
+            <Route exact path="/dev/sign-in" component={Login} />
           </Switch>
         </div>
       </div>
