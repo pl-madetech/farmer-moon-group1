@@ -1,15 +1,8 @@
 import "./App.css";
 
 import React from "react";
-
-class CostComponent extends React.Component<{corn: number},  {}> {
-  constructor(props: any) {
-    super(props);
-  }
-  render() {
-    return <p>{this.props.corn * 25}p</p>;
-  }
-}
+import { CostComponent } from "../components/CostComponent";
+import { CornComponent } from "../components/CornComponent";
 
 export default class App extends React.Component<{},  {corn: number}> {
   constructor(props: any) {
@@ -17,19 +10,17 @@ export default class App extends React.Component<{},  {corn: number}> {
     this.state = {
       corn: 0
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.cornAmountChanged = this.cornAmountChanged.bind(this);
   }
-  handleChange(event: any) {
-    this.setState({corn: event.target.value});
+  cornAmountChanged(corn: number) {
+    this.setState({...this.state, corn});
   }
   render() {
     return <div className="App">
       <header className="App-header">
         <h1 className="App-title">Cornundrum</h1>
       </header>
-      <p>How many bags of corn do I have?</p>
-      <input type="number" onChange={this.handleChange} defaultValue="0"></input>
-      <p>@25p per bag, my total journey will cost:</p>
+      <CornComponent cornAmountChanged={this.cornAmountChanged} corn={this.state.corn} />
       <CostComponent corn={this.state.corn} />
     </div>
   };
