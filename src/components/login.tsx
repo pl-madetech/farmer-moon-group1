@@ -3,8 +3,12 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Container } from "react-bootstrap";
 import useConfig from "./useConfig";
-import { Redirect } from "react-router-dom";
+import { Redirect, useLocation } from "react-router-dom";
 import { RouteProps } from "../Routes/RouteProps";
+
+interface stateType {
+  from: { pathname: string };
+}
 
 export default function Login() {
   //   const validEmail = "kjdchapman@gmail.com";
@@ -13,6 +17,7 @@ export default function Login() {
   const validEmail = "admin@gmail.com";
   const validPassword = "admin";
   const config = useConfig();
+  const { state } = useLocation<stateType>();
 
   const [logged, setLogged] = useState(false);
   const [email, setEmail] = useState("");
@@ -40,7 +45,7 @@ export default function Login() {
   }
 
   if (logged === true || config.app.IS_AUTHENTICATED === true) {
-    return <Redirect to={RouteProps.HOME_URL} />;
+    return <Redirect to={state?.from || RouteProps.HOME_URL} />;
   }
 
   return (

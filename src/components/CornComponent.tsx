@@ -13,7 +13,7 @@ export class CornComponent extends React.Component<{ cornAmountChanged: (corn: n
       <div>
         <p>
           <span>Bags of corn: </span>
-          <input type="number" onChange={this.handleChange} defaultValue={this.props.corn}></input>
+          <input type="number" onChange={this.handleChange} min="0" defaultValue={this.props.corn}></input>
           <span> @25p per bag</span>
         </p>
       </div>

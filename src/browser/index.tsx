@@ -5,10 +5,12 @@ import { Config } from "../server/config";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import ConfigContext from "../components/ConfigContext";
 
-import Login from "../components/login";
-import Home from "../components/home";
 import PrivateRoute from "../Routes/PrivateRoute";
 import { RouteProps } from "../Routes/RouteProps";
+
+import NotFound from "../components/NotFound";
+import Login from "../components/login";
+import Home from "../components/home";
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
@@ -42,6 +44,9 @@ const App = () => {
               <PrivateRoute exact path={RouteProps.HOME_URL}>
                 <Home />
               </PrivateRoute>
+              <Route path="*">
+                <NotFound />
+              </Route>
             </Switch>
           </div>
         </div>

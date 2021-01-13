@@ -10,8 +10,6 @@ const PrivateRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) => {
-        alert(config.app.IS_AUTHENTICATED);
-
         return config.app.IS_AUTHENTICATED === true ? (
           children
         ) : (
