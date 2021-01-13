@@ -1,11 +1,10 @@
-// import React from "react";
-
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Container } from "react-bootstrap";
 import useConfig from "./useConfig";
 import { Redirect } from "react-router-dom";
+import { RouteProps } from "../Routes/RouteProps";
 
 export default function Login() {
   //   const validEmail = "kjdchapman@gmail.com";
@@ -28,7 +27,7 @@ export default function Login() {
     event.preventDefault();
 
     if (email === validEmail && password === validPassword) {
-      config.app.IS_AUTHENTICATED = "true";
+      config.app.IS_AUTHENTICATED = true;
 
       setLogged(true);
       setValidated(true);
@@ -40,8 +39,8 @@ export default function Login() {
     }
   }
 
-  if (logged === true) {
-    return <Redirect to="/dev/home" />;
+  if (logged === true || config.app.IS_AUTHENTICATED === true) {
+    return <Redirect to={RouteProps.HOME_URL} />;
   }
 
   return (

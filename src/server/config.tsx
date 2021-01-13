@@ -29,7 +29,7 @@ const config = {
     /** Where the contents of the `public` folder are hosted (might be the same as `config.app.DIST_URL`) */
     PUBLIC_URL: isLocal ? "http://localhost:8080" : String(process.env.APP_PUBLIC_URL),
     /** Is User logged in */
-    IS_AUTHENTICATED: "false",
+    IS_AUTHENTICATED: false,
   },
 };
 
