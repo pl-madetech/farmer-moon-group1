@@ -14,6 +14,7 @@ const isLocal = process.env.IS_LOCAL || process.env.IS_OFFLINE;
  * hook. However, due to this behavior, it is important NOT to expose any sensitive information
  * such as passwords or tokens through the config.
  */
+
 const config = {
   /** Application Config */
   app: {
@@ -27,6 +28,8 @@ const config = {
     DIST_URL: isLocal ? "http://localhost:8080" : String(process.env.APP_DIST_URL),
     /** Where the contents of the `public` folder are hosted (might be the same as `config.app.DIST_URL`) */
     PUBLIC_URL: isLocal ? "http://localhost:8080" : String(process.env.APP_PUBLIC_URL),
+    /** Is User logged in */
+    IS_AUTHENTICATED: "false",
   },
 };
 

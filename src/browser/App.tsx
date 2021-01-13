@@ -14,7 +14,6 @@ export default function App() {
       <header className="App-header">
         <h1 className="App-title">Welcome to {config.app.TITLE}</h1>
       </header>
-      <p className="App-intro">I have changed the app Another change</p>
     </div>
   );
 }

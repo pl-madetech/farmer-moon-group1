@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { render } from "react-dom";
 
 import { Config } from "../server/config";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import ConfigContext from "../components/ConfigContext";
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
 import Login from "../components/login";
 import Home from "../components/home";
+import PrivateRoute from "../Routes/PrivateRoute";
 
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 const config = (window as any).__CONFIG__ as Config;
@@ -33,7 +35,7 @@ const App = () => (
         <div className="auth-inner">
           <Switch>
             <Route exact path="/dev" component={Login} />
-            <Route exact path="/dev/home" component={Home} />
+            <PrivateRoute exact path="/dev/home" component={Home} logged="false" setLogged="" />
           </Switch>
         </div>
       </div>
@@ -41,4 +43,9 @@ const App = () => (
   </BrowserRouter>
 );
 
-render(<App />, document.getElementById("root"));
+render(
+  <ConfigContext.Provider value={config}>
+    <App />
+  </ConfigContext.Provider>,
+  document.getElementById("root"),
+);
