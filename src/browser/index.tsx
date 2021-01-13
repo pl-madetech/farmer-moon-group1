@@ -8,6 +8,7 @@ import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
 import Login from "../components/login";
+import Home from "../components/Home";
 
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 const config = (window as any).__CONFIG__ as Config;
@@ -28,10 +29,11 @@ const App = () => (
         </h1>
       </nav>
 
-      <div className="outer">
-        <div className="inner">
+      <div className="auth-wrapper">
+        <div className="auth-inner">
           <Switch>
             <Route exact path="/dev" component={Login} />
+            <Route exact path="/dev/" component={Home} />
           </Switch>
         </div>
       </div>
