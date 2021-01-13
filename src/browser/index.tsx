@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { render } from "react-dom";
 
 import { Config } from "../server/config";
@@ -20,32 +20,46 @@ delete (window as any).__CONFIG__;
 /**
  * Frontend code running in browser
  */
-const App = () => (
-  <BrowserRouter>
-    <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <h1 className="App-title">
-          <Link className="nav-link" to={"/dev"}>
-            {config.app.TITLE}
-          </Link>
-        </h1>
-      </nav>
+const App = () => {
+  const [logged, setLogged] = useState(false);
 
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Switch>
-            <Route exact path="/dev" component={Login} />
-            <PrivateRoute exact path="/dev/home" component={Home} logged="false" setLogged="" />
-          </Switch>
+  useEffect(() => {
+    if (window.localStorage.getItem("qrs")) {
+      setLogged(true);
+    } else {
+      setLogged(false);
+    }
+  }, []);
+
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+          <h1 className="App-title">
+            <Link className="nav-link" to={"/dev"}>
+              {config.app.TITLE}
+            </Link>
+          </h1>
+        </nav>
+
+        <div className="auth-wrapper">
+          <div className="auth-inner">
+            <Switch>
+              <Route exact path="/dev" component={Login} />
+              <PrivateRoute exact path="/dev/home">
+                <Home />
+              </PrivateRoute>
+            </Switch>
+          </div>
         </div>
       </div>
-    </div>
-  </BrowserRouter>
-);
+    </BrowserRouter>
+  );
+};
 
 render(
   <ConfigContext.Provider value={config}>
-    <App />
+    <App />,
   </ConfigContext.Provider>,
   document.getElementById("root"),
 );

@@ -5,11 +5,17 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Container } from "react-bootstrap";
 import useConfig from "./useConfig";
+import { Redirect } from "react-router-dom";
 
 export default function Login() {
-  const validEmail = "kjdchapman@gmail.com";
-  const validPassword = "F@rmerC@rn";
+  //   const validEmail = "kjdchapman@gmail.com";
+  //   const validPassword = "F@rmerC@rn";
 
+  const validEmail = "admin@gmail.com";
+  const validPassword = "admin";
+  const config = useConfig();
+
+  const [logged, setLogged] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [validated, setValidated] = useState(false);
@@ -22,17 +28,20 @@ export default function Login() {
     event.preventDefault();
 
     if (email === validEmail && password === validPassword) {
-      setValidated(true);
-      alert("Success");
-      const config = useConfig();
       config.app.IS_AUTHENTICATED = "true";
 
-        
-
+      setLogged(true);
+      setValidated(true);
     } else {
       alert("Failure");
+
+      setLogged(false);
       setValidated(false);
     }
+  }
+
+  if (logged === true) {
+    return <Redirect to="/dev/home" />;
   }
 
   return (
