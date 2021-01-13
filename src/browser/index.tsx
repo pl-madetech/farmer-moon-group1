@@ -8,7 +8,7 @@ import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
 import Login from "../components/login";
-import Home from "../components/Home";
+import Home from "../components/home";
 
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 const config = (window as any).__CONFIG__ as Config;
@@ -33,7 +33,7 @@ const App = () => (
         <div className="auth-inner">
           <Switch>
             <Route exact path="/dev" component={Login} />
-            <Route exact path="/dev/" component={Home} />
+            <Route exact path="/dev/home" component={Home} />
           </Switch>
         </div>
       </div>
