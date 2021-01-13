@@ -10,7 +10,7 @@ const PrivateRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) => {
-        return config.app.IS_AUTHENTICATED === true ? (
+        return config.app.IS_AUTHENTICATED ? (
           children
         ) : (
           <Redirect

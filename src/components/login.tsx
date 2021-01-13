@@ -44,7 +44,7 @@ export default function Login() {
     }
   }
 
-  if (logged === true || config.app.IS_AUTHENTICATED === true) {
+  if (logged || config.app.IS_AUTHENTICATED) {
     return <Redirect to={state?.from || RouteProps.HOME_URL} />;
   }
 
