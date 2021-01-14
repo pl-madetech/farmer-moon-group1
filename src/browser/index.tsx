@@ -28,18 +28,18 @@ delete (window as any).__CONFIG__;
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App" aria-label="Application">
         <nav className="navbar navbar-expand-lg navbar-light justify-content-between fixed-top">
-          <a href={RouteProps.LOGIN_URL}>
-            <img src={logo} width="60" height="60" className="d-inline-block align-top" alt="logo"></img>
+          <a href={RouteProps.LOGIN_URL} aria-label="Login url">
+            <img src={logo} width="60" height="60" className="d-inline-block align-top" alt="The navigation corn logo for farmer"></img>
           </a>
-          <h1 className="App-title">{config.app.TITLE}</h1>
+          <h1 className="App-title" aria-label="Application Tittle">{config.app.TITLE}</h1>
 
           <AuthButton />
         </nav>
 
-        <div className="auth-wrapper">
-          <div className="auth-inner">
+        <div className="auth-wrapper" aria-label="Authentication Primary">
+          <div className="auth-inner" aria-label="Authentication Secondary">
             <Switch>
               <Route exact path={RouteProps.LOGIN_URL}>
                 <Login />

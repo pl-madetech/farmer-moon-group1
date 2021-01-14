@@ -28,6 +28,8 @@ export default function Login() {
   function handleSubmit(event: any) {
     event.preventDefault();
 
+    event.target.className += " invalid";
+
     if (email === validEmail && password === validPassword) {
       config.app.IS_AUTHENTICATED = true;
 
@@ -44,6 +46,8 @@ export default function Login() {
   if (logged || config.app.IS_AUTHENTICATED) {
     return <Redirect to={state?.from || RouteProps.HOME_URL} />;
   }
+
+  console.log("Before render HTML");
 
   return (
     <Container>
@@ -65,3 +69,4 @@ export default function Login() {
     </Container>
   );
 }
+
