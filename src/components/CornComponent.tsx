@@ -7,13 +7,21 @@ export class CornComponent extends React.Component<{ cornAmountChanged: (corn: n
   }
   handleChange(event: any) {
     this.props.cornAmountChanged(event.target.value);
+    event.target.value = Math.round(event.target.value);
   }
   render() {
     return (
-      <div>
+      <div className="form-group">
         <p>
           <span>Bags of corn: </span>
-          <input type="number" onChange={this.handleChange} min="0" defaultValue={this.props.corn}></input>
+          <input
+            type="number"
+            className="form-control"
+            onChange={this.handleChange}
+            min="0"
+            defaultValue={this.props.corn}
+            aria-label="Amount"
+          ></input>
           <span> @25p per bag</span>
         </p>
       </div>

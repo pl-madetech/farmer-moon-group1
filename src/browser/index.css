@@ -58,8 +58,5 @@ body, html, .App, #root, .auth-wrapper {
 
 .App-title {
   font-size: 1.25rem;
-}
-
-.App-title a {
   color: white;
 }

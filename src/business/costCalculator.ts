@@ -4,4 +4,4 @@ type Inventory = {
     corn: number;
 }
 
-export const calculateCost = ({corn}: Inventory) => Math.floor(corn) * 25
+export const calculateCost = ({corn}: Inventory) => Math.round(corn) * 25

@@ -15,7 +15,7 @@ import Home from "../components/home";
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
-import logo from "../../public/mstile-150x150.png";
+import logo from "../../public/corn-bag.png";
 
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 const config = (window as any).__CONFIG__ as Config;
@@ -30,13 +30,11 @@ const App = () => {
     <BrowserRouter>
       <div className="App">
         <nav className="navbar navbar-expand-lg navbar-light justify-content-between fixed-top">
-        <img src={logo} width="60" height="60" className="d-inline-block align-top" alt="logo"></img>
-          <h1 className="App-title">
-            <Link className="nav-link" to={RouteProps.LOGIN_URL}>
-              {config.app.TITLE}
-            </Link>
-          </h1>
-          
+          <a href={RouteProps.LOGIN_URL}>
+            <img src={logo} width="60" height="60" className="d-inline-block align-top" alt="logo"></img>
+          </a>
+          <h1 className="App-title">{config.app.TITLE}</h1>
+
           <AuthButton />
         </nav>
 
