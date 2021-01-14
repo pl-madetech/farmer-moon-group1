@@ -8,12 +8,14 @@ import ConfigContext from "../components/ConfigContext";
 import PrivateRoute from "../Routes/PrivateRoute";
 import { RouteProps } from "../Routes/RouteProps";
 
+import AuthButton from "../components/AuthButton";
 import NotFound from "../components/NotFound";
 import Login from "../components/login";
 import Home from "../components/home";
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import logo from "../../public/mstile-150x150.png";
 
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 const config = (window as any).__CONFIG__ as Config;
@@ -27,12 +29,15 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-light justify-content-between fixed-top">
+        <img src={logo} width="60" height="60" className="d-inline-block align-top" alt="logo"></img>
           <h1 className="App-title">
             <Link className="nav-link" to={RouteProps.LOGIN_URL}>
               {config.app.TITLE}
             </Link>
           </h1>
+          
+          <AuthButton />
         </nav>
 
         <div className="auth-wrapper">

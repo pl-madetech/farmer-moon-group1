@@ -11,10 +11,7 @@ interface stateType {
 }
 
 export default function Login() {
-  //   const validEmail = "kjdchapman@gmail.com";
-  //   const validPassword = "F@rmerC@rn";
-
-  const validEmail = "admin@gmail.com";
+  const validEmail = "kjdchapman@gmail.com";
   const validPassword = "admin";
   const config = useConfig();
   const { state } = useLocation<stateType>();
