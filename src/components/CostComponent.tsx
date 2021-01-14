@@ -1,17 +1,22 @@
 import React from "react";
 import _ from "lodash";
-import { calculateCost, isPossibleJourney } from "../business/costCalculator";
+import { calculateCost, isPossibleJourney, journeySteps } from "../business/costCalculator";
 
-export class CostComponent extends React.Component<{ corn: number, goose: number }, {}> {
+export class CostComponent extends React.Component<{ corn: number; goose: number }, {}> {
   constructor(props: any) {
     super(props);
   }
   render() {
     return (
-      <p className={!isPossibleJourney(this.props) ? "hidden" : ""}>
-        <span>My total journey will cost </span>
-        <span>{calculateCost(this.props)}p</span>
-      </p>
+      <div className={!isPossibleJourney(this.props) ? "hidden" : ""}>
+        <p>
+          <span>My total journey will cost </span>
+          <span><b>{calculateCost(this.props)}p</b></span>
+        </p>
+        <span>
+          <p className="display-linebreak">{journeySteps(this.props)}</p>
+        </span>
+      </div>
     );
   }
 }

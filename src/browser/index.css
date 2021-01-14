@@ -64,3 +64,7 @@ body, html, .App, #root, .auth-wrapper {
 .hidden {
   display: none;
 }
+
+.display-linebreak {
+  white-space: pre-line;
+}

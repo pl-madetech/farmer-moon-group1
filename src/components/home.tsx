@@ -2,9 +2,9 @@ import React from "react";
 import { CostComponent } from "./CostComponent";
 import { CornComponent } from "./CornComponent";
 import { GooseComponent } from "./GooseComponent";
-import {isPossibleJourney} from "../business/costCalculator";
+import { isPossibleJourney } from "../business/costCalculator";
 
-export default class Home extends React.Component<{}, { corn: number, goose: number }> {
+export default class Home extends React.Component<{}, { corn: number; goose: number }> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -22,11 +22,17 @@ export default class Home extends React.Component<{}, { corn: number, goose: num
   }
   render() {
     return (
-      <div className="App">
-        <CornComponent cornAmountChanged={this.cornAmountChanged} corn={this.state.corn} />
-        <GooseComponent gooseAmountChanged={this.gooseAmountChanged} goose={this.state.goose} />
-        <CostComponent corn={this.state.corn} goose={this.state.goose} />
-        <span className={isPossibleJourney(this.state) ? "hidden" : ""}>Sorry Farmer Moon, you can't get this stock to market safely.</span>
+      <div className="row-fluid">
+        <div className="span6">
+          <CornComponent cornAmountChanged={this.cornAmountChanged} corn={this.state.corn} />
+          <GooseComponent gooseAmountChanged={this.gooseAmountChanged} goose={this.state.goose} />
+        </div>
+        <div className="span6">
+          <CostComponent corn={this.state.corn} goose={this.state.goose} />
+          <span className={isPossibleJourney(this.state) ? "hidden" : ""}>
+            Sorry Farmer Moon, you can't get this stock to market safely.
+          </span>
+        </div>
       </div>
     );
   }
