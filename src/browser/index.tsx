@@ -15,6 +15,7 @@ import Home from "../components/home";
 
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import "./App.css";
 import logo from "../../public/corn-bag.png";
 
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
