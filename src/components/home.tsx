@@ -22,16 +22,18 @@ export default class Home extends React.Component<{}, { corn: number; goose: num
   }
   render() {
     return (
-      <div className="row-fluid">
-        <div className="span6">
-          <CornComponent cornAmountChanged={this.cornAmountChanged} corn={this.state.corn} />
-          <GooseComponent gooseAmountChanged={this.gooseAmountChanged} goose={this.state.goose} />
-        </div>
-        <div className="span6">
-          <CostComponent corn={this.state.corn} goose={this.state.goose} />
-          <span className={isPossibleJourney(this.state) ? "hidden" : ""}>
-            Sorry Farmer Moon, you can't get this stock to market safely.
-          </span>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <CornComponent cornAmountChanged={this.cornAmountChanged} corn={this.state.corn} />
+            <GooseComponent gooseAmountChanged={this.gooseAmountChanged} goose={this.state.goose} />
+          </div>
+          <div className="col">
+            <CostComponent corn={this.state.corn} goose={this.state.goose} />
+            <span className={isPossibleJourney(this.state) ? "hidden" : ""}>
+              Sorry Farmer Moon, you can't get this stock to market safely.
+            </span>
+          </div>
         </div>
       </div>
     );
